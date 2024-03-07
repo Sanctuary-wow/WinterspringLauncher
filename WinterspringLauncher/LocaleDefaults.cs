@@ -5,20 +5,20 @@ namespace WinterspringLauncher;
 
 public static class LocaleDefaults
 {
-    public static bool ShouldUseAsiaPreferences { get; set; } = CultureInfo.CurrentCulture.Name.StartsWith("zh", StringComparison.InvariantCultureIgnoreCase);
+    public static bool ShouldUseAsiaPreferences { get; set; } = false;
 
     public static string GetBestWoWConfigLocale()
     {
-        return ShouldUseAsiaPreferences ? "zhCN" : "enUS";
+        return "enUS";
     }
 
     public static string? GetBestGitHubMirror()
     {
-        return ShouldUseAsiaPreferences ? "https://asia.cdn.everlook.aclon.cn/github-mirror/api/" : null;
+        return ShouldUseAsiaPreferences ? null : null;
     }
 
     public static string GetBestServerName()
     {
-        return ShouldUseAsiaPreferences ? "Everlook (Asia)" : "Everlook (Europe)";
+        return "Sanctuary";
     }
 }

@@ -3,10 +3,8 @@
 </figure>
 
 # Winterspring Launcher
-Allows you to play on [Everlook.org](https://everlook.org/) with modern 1.14 WoW Client!  
-_This is not an official project from the Everlook team._  
-_Do not ask the Everlook team for support_  
-_(you can still ask in [#addons-and-ui](https://discord.com/channels/973529971740008448/983067524797177996) on Discord)_ 
+Allows you to play on [Sanctuarywow.com](https://sanctuarywow.com/) with modern 1.14 WoW Client!
+This is the fork of the [original Winterspring launcher](https://github.com/0blu/WinterspringLauncher/). It has been adjusted to default to Sanctuary and applies fixes.
 
 ## Easy setup
 The launcher will do everything for you.  
@@ -14,17 +12,17 @@ It will download the 1.14 client, setup HermesProxy and launch the game.
 When HermesProxy has an update it is automatically applied.
 
 ### Windows <img src="https://blu.wtf/icon_windows.png" alt="windows" width="24" height="24">
-1. **Download [the latest .exe release](https://github.com/0blu/EverlookClassicLauncher/releases/latest)**
+1. **Download [the latest .exe release](https://github.com/Sanctuary-wow/WinterspringLauncher/releases/latest)**
 2. Place it in a separate directory (On first launch it will create subfolders and a desktop icon)
 3. Run it
-4. **Enjoy your stay on Everlook**
+4. **Enjoy your stay on Sanctuary**
 
 ### MacOS <img src="https://blu.wtf/icon_macos.png?0" alt="macos" width="24" height="24">
-1. **Download [the latest .dmg release](https://github.com/0blu/EverlookClassicLauncher/releases/latest)**
+1. **Download [the latest .dmg release](https://github.com/Sanctuary-wow/WinterspringLauncher/releases/latest)**
 2. Click on the downloaded .dmg file to open the installer
 3. Drag the Launcher into your Applications folder
 4. Go into your Applications folder, right click the Launcher and **click "Open"**
-5. **Enjoy your stay on Everlook**
+5. **Enjoy your stay on Sanctuary**
 _On MacOS the client will be stored in `/Users/<your name>/WinterspringLauncher/`_
 
 ## Addons
@@ -47,13 +45,12 @@ Here are some working recommendations:
 ## Why?
 The modern WoW-Classic client provides many improvements in hardware compatibility and accessibility.
 
-With Everlook we have the unique chance to improve HermesProxy with a large testing audience.   
 The launcher will make the classic client accessible to everyone.  
 So if you find any bugs [please report them](https://github.com/WowLegacyCore/HermesProxy/issues/new/choose).  
-(If you find any bugs associated to the launcher report them [here](https://github.com/0blu/WinterspringLauncher/issues))
+(If you find any bugs associated to the launcher report them [here](https://github.com/Sanctuary-wow/WinterspringLauncher/issues))
 
 ## Is this allowed?
-Currently HermesProxy is tolerated on Everlook.  
+Currently HermesProxy is tolerated on Sanctuary.  
 ⚠️You **will** get suspended if you exploit any game breaking bugs.  
 So far no-one has been banned for using official HermesProxy.  
 Just use common sense and <u>**play fair**</u>!

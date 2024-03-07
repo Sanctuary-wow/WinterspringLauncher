@@ -36,7 +36,7 @@ public static class LauncherVersion
             return false; // we are probably in a test branch
         }
 
-        var latestLauncherVersion = GitHubApi.LatestReleaseVersion("0blu/WinterspringLauncher");
+        var latestLauncherVersion = GitHubApi.LatestReleaseVersion("Sanctuary-wow/WinterspringLauncher");
         if (latestLauncherVersion.TagName == null)
             throw new Exception("No latest version?");
 
@@ -49,7 +49,7 @@ public static class LauncherVersion
             {
                 ReleaseDate = latestLauncherVersion.PublishedAt,
                 VersionName = latestLauncherVersion.TagName,
-                URLLinkToReleasePage = "https://github.com/0blu/WinterspringLauncher/releases",
+                URLLinkToReleasePage = "https://github.com/Sanctuary-wow/WinterspringLauncher/releases",
             };
             return true;
         }

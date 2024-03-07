@@ -20,7 +20,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Download: " />
-                <uiElements:HyperlinkTextBlock x:Name="DlLinkIndicator" NavigateUri="https://github.com/0blu/WinterspringLauncher" Text="https://github.com/0blu/WinterspringLauncher" />
+                <uiElements:HyperlinkTextBlock x:Name="DlLinkIndicator" NavigateUri="https://github.com/Sanctuary-wow/WinterspringLauncher" Text="https://github.com/Sanctuary-wow/WinterspringLauncher" />
             </StackPanel>
         </StackPanel>
         <Button Grid.Row="1" Click="CloseButtonClick">Close</Button>

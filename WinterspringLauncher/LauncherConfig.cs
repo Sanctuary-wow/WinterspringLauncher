@@ -25,7 +25,7 @@ public class LauncherConfig : VersionedBaseConfig
     private string _internalLastLoadedJsonString = string.Empty;
 
     public string LauncherLanguage { get; set; } = "en";
-    public string? GitHubApiMirror { get; set; } = null; // example "http://asia.cdn.everlook.aclon.cn/github-mirror/api/" + "/repos/{repoName}/releases/latest"
+    public string? GitHubApiMirror { get; set; } = null;
     public string LastSelectedServerName { get; set; } = "";
     public bool CheckForLauncherUpdates { get; set; } = true;
     public bool CheckForHermesUpdates { get; set; } = true;
@@ -36,61 +36,22 @@ public class LauncherConfig : VersionedBaseConfig
     {
         new ServerInfo
         {
-            Name = "Everlook (Europe)",
-            RealmlistAddress = "logon.everlook.org",
-            UsedInstallation = "Everlook EU 1.14.2 installation"
-        },
-        new ServerInfo
-        {
-            Name = "Everlook (Asia)",
-            RealmlistAddress = "asia.everlook-wow.net",
-            UsedInstallation = "Everlook Asia 1.14.2 installation",
-        },
-        new ServerInfo
-        {
-            Name = "Localhost (1.14.2)",
-            RealmlistAddress = "127.0.0.1",
-            UsedInstallation = "Default 1.14.2 installation",
-            HermesSettings = new Dictionary<string, string>
-            {
-                ["DebugOutput"] = "true",
-                ["PacketsLog"] = "true",
-            }
+            Name = "SanctuaryWoW",
+            RealmlistAddress = "logon.sanctuarywow.com",
+            UsedInstallation = "Sanctuary 1.14.2 installation"
         },
     };
 
     public Dictionary<string, InstallationLocation> GameInstallations { get; set; } = new Dictionary<string, InstallationLocation>
     {
-        ["Everlook EU 1.14.2 installation"] = new InstallationLocation
-        {
-            Directory = "./winterspring-data/WoW 1.14.2 Everlook",
-            Version = "1.14.2.42597",
-            ClientPatchInfoURL = "https://wow-patches.blu.wtf/patches/1.14.2.42597_summary.json", 
-            CustomBuildInfoURL = "https://eu.cdn.everlook.org/game-client-patch-cdn/everlook_eu_prod_1_14_2/latest-build-info",
-            BaseClientDownloadURL = new Dictionary<OperatingSystem, string>() {
-                [OperatingSystem.Windows] = "https://download.wowdl.net/downloadFiles/Clients/WoW%20Classic%201.14.2.42597%20All%20Languages.rar",
-                [OperatingSystem.MacOs] = "https://download.wowdl.net/downloadFiles/Clients/WoW_Classic_1.14.2.42597_macOS.zip",
-            },
-        },
-        ["Everlook Asia 1.14.2 installation"] = new InstallationLocation
-        {
-            Directory = "./winterspring-data/WoW 1.14.2 Everlook Asia",
-            Version = "1.14.2.42597",
-            ClientPatchInfoURL = "https://wow-patches.blu.wtf/patches/1.14.2.42597_summary.json", 
-            CustomBuildInfoURL = "http://asia.cdn.everlook.aclon.cn/game-client-patch-cdn/everlook_asia_prod_1_14_2/latest-build-info",
-            BaseClientDownloadURL = new Dictionary<OperatingSystem, string>() {
-                [OperatingSystem.Windows] = "http://asia.cdn.everlook.aclon.cn/game-client-patch-cdn/wow_classic_1_14_2_42597_all_languages.rar",
-                [OperatingSystem.MacOs] = "http://asia.cdn.everlook.aclon.cn/game-client-patch-cdn/wow_classic_1_14_2_42597_all_languages_macos.rar",
-            },
-        },
-        ["Default 1.14.2 installation"] = new InstallationLocation
+        ["Sanctuary 1.14.2 installation"] = new InstallationLocation
         {
             Directory = "./winterspring-data/WoW 1.14.2",
             Version = "1.14.2.42597",
             ClientPatchInfoURL = "https://wow-patches.blu.wtf/patches/1.14.2.42597_summary.json",
             BaseClientDownloadURL = new Dictionary<OperatingSystem, string>() {
-                [OperatingSystem.Windows] = "https://download.wowdl.net/downloadFiles/Clients/WoW%20Classic%201.14.2.42597%20All%20Languages.rar",
-                [OperatingSystem.MacOs] = "https://download.wowdl.net/downloadFiles/Clients/WoW_Classic_1.14.2.42597_macOS.zip",
+                [OperatingSystem.Windows] = "https://us-download.wowdl.net/download/751837/4e69706cd5c4b147854f9e92a6c0409f/client/wow-classic-1.14.2.42597-all-languages/wowdl.net",
+                [OperatingSystem.MacOs] = "https://us-download.wowdl.net/download/751838/4e69706cd5c4b147854f9e92a6c0409f/client/wow-classic-1.14.2.42597-macos/wowdl.net",
             },
         }
     };
@@ -176,32 +137,12 @@ public class LauncherConfig : VersionedBaseConfig
 
             var newConfig = new LauncherConfig();
 
-            // If a official everlook server is detected switch the installation directory, so the client does not need to redownload it
-            if (v1Config.Realmlist.Contains("everlook-wow.net", StringComparison.InvariantCultureIgnoreCase))
-            {
-                var knownServer = newConfig.KnownServers.First(g => g.RealmlistAddress.Contains("everlook-wow", StringComparison.InvariantCultureIgnoreCase));
-                var knownInstallation = newConfig.GameInstallations.First(g => g.Key == knownServer.UsedInstallation);
-                newConfig.GitHubApiMirror = "http://asia.cdn.everlook.aclon.cn/github-mirror/api/";
-                newConfig.LastSelectedServerName = knownServer.Name;
-                TryUpgradeOldGameFolder(knownInstallation.Value.Directory, v1Config.GamePath);
-            }
-            else if (v1Config.Realmlist.Contains("everlook.org", StringComparison.InvariantCultureIgnoreCase))
-            {
-                var knownServer = newConfig.KnownServers.First(g => g.RealmlistAddress.Contains("everlook.org", StringComparison.InvariantCultureIgnoreCase));
-                var knownInstallation = newConfig.GameInstallations.First(g => g.Key == knownServer.UsedInstallation);
-                newConfig.LastSelectedServerName = knownServer.Name;
-                TryUpgradeOldGameFolder(oldGameFolder: v1Config.GamePath, newGameFolder: knownInstallation.Value.Directory);
-            }
-
             return JsonSerializer.Serialize(newConfig);
         }
 
         if (configVersion.ConfigVersion == 2)
         {
             var newConfig = JsonSerializer.Deserialize<LauncherConfig>(currentConfig);
-
-            if (newConfig.GitHubApiMirror == "http://asia.cdn.everlook-wow.net/github-mirror/api/")
-                newConfig.GitHubApiMirror = "http://asia.cdn.everlook.aclon.cn/github-mirror/api/";
 
             newConfig.ConfigVersion = 3;
 
