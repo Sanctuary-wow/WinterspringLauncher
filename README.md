@@ -4,7 +4,8 @@
 
 # Winterspring Launcher
 Allows you to play on [Sanctuarywow.com](https://sanctuarywow.com/) with modern 1.14 WoW Client!
-This is the fork of the [original Winterspring launcher](https://github.com/0blu/WinterspringLauncher/). It has been adjusted to default to Sanctuary and applies fixes.
+
+This is a modified version of the [original Winterspring launcher](https://github.com/0blu/WinterspringLauncher/) developed and hosted by [_Blu](https://github.com/0blu) of Everlook. It has been adjusted to default to Sanctuary and applies fixes.
 
 ## Easy setup
 The launcher will do everything for you.  
