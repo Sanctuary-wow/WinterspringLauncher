@@ -50,8 +50,8 @@ public class LauncherConfig : VersionedBaseConfig
             Version = "1.14.2.42597",
             ClientPatchInfoURL = "https://wow-patches.blu.wtf/patches/1.14.2.42597_summary.json",
             BaseClientDownloadURL = new Dictionary<OperatingSystem, string>() {
-                [OperatingSystem.Windows] = "https://us-download.wowdl.net/download/751837/4e69706cd5c4b147854f9e92a6c0409f/client/wow-classic-1.14.2.42597-all-languages/wowdl.net",
-                [OperatingSystem.MacOs] = "https://us-download.wowdl.net/download/751838/4e69706cd5c4b147854f9e92a6c0409f/client/wow-classic-1.14.2.42597-macos/wowdl.net",
+                [OperatingSystem.Windows] = "https://ipfs.io/ipfs/QmUkaGuN6C87YT7S3QhE4Zgwz8k1V9ej5cooF1Z5CsTt8K?filename=win.zip",
+                [OperatingSystem.MacOs] = "https://ipfs.io/ipfs/QmaSMkzAsLezPDRZPZrXtgggUPaJNbkUjrsbmUFQa7ges7?filename=mac.zip",
             },
         }
     };
