@@ -48,9 +48,9 @@ public class LauncherConfig : VersionedBaseConfig
         {
             Directory = "./winterspring-data/WoW 1.14.2",
             Version = "1.14.2.42597",
-            ClientPatchInfoURL = "https://wow-patches.blu.wtf/patches/1.14.2.42597_summary.json",
+            ClientPatchInfoURL = "https://sa.nctuary.com/1.14.2.42597_summary.json",
             BaseClientDownloadURL = new Dictionary<OperatingSystem, string>() {
-                [OperatingSystem.Windows] = "https://ipfs.io/ipns/k51qzi5uqu5di6ej6e3vuit7yvtrf8buq8q7gsfhryvzolj9ckjpiuzw68bd5g",
+                [OperatingSystem.Windows] = "https://sa.nctuary.com/win.rar",
                 [OperatingSystem.MacOs] = "", // Temporary invalid link. Mac not supported.
             },
         }
@@ -91,29 +91,7 @@ public class LauncherConfig : VersionedBaseConfig
     public static LauncherConfig LoadOrCreateDefault(string configPath)
     {
         LauncherConfig config;
-        if (!File.Exists(configPath))
-        {
-            config = GetDefaultConfig();
-        }
-        else
-        {
-            string configTextContent = File.ReadAllText(configPath, Encoding.UTF8);
-            string updatedConfig = PatchConfigIfNeeded(configTextContent);
-            var loadedJson = JsonSerializer.Deserialize<LauncherConfig>(updatedConfig);
-            if (loadedJson != null)
-            {
-                config = loadedJson;
-                config._internalLastLoadedJsonString = configTextContent;
-            }
-            else
-            {
-                Console.WriteLine("Config is null after loading? Replacing it with default one");
-                config = GetDefaultConfig();
-            }
-        }
-
-        config.SaveConfig(configPath);
-
+        config = GetDefaultConfig();
         return config;
     }
 

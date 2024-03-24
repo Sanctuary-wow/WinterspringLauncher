@@ -125,7 +125,6 @@ public partial class LauncherLogic
         }
 
         _config.LastSelectedServerName = serverInfo.Name;
-        _config.SaveConfig(CONFIG_FILE_NAME);
 
         var expectedPatchedClientLocation = Path.Combine(gameInstallation.Directory, SubPathToWowForCustomServers);
         _model.GameFolderExists = Directory.Exists(gameInstallation.Directory);

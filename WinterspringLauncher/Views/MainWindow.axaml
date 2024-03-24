@@ -60,7 +60,7 @@
             <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" IsEnabled="{Binding InputIsAllowed}">
                 <StackPanel Orientation="Horizontal" Grid.Column="0" Spacing="10">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Server" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0, 0, 5, 0"/>
+                        <TextBlock Text="Server: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0, 0, 5, 0"/>
                         <ComboBox SelectedIndex="{Binding SelectedServerIdx, Mode=TwoWay}" ItemsSource="{Binding KnownServerList}" SelectionChanged="ServerSelectionChanged" IsEnabled="{Binding !HermesIsRunning}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
@@ -69,9 +69,6 @@
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                     </StackPanel>
-                    <Button Command="{Binding Logic.OpenGameFolder}" IsEnabled="{ Binding GameFolderExists }">
-                        <Image Margin="0, 1, 0, 0" Source="/Assets/icons/folder.png" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="{Binding GameIsInstalled}"/>
-                    </Button>
                     <!--
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Account" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0, 0, 5, 0"/>

@@ -101,7 +101,7 @@ public class BinaryPatchHandler
         if (signature.Length != 256)
             throw new ArgumentException("Signature must be 256 bytes long");
 
-        // ref https://wow-patches.blu.wtf/sign_key.pub
+        // ref https://sa.nctuary.com/sign_key.pub
         const string publicKey = @"
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmy/cX6/VOlOpgLnQWnWS
